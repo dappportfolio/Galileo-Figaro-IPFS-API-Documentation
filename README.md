@@ -129,74 +129,104 @@ The 'cccc' license was registered three times:
 
 #### Example Usage
 
-**2. Get License Information**
+2. Get License Information
+Endpoint: /getLicense
 
-- **Request:**
-  - POST to `https://demo.galileofigaro.io/api/ipfs/`
-  - Headers: `Authorization: Bearer your_token`
-  - Parameters:
-    - `action: "getLicense"`
-    - `license_number: "your_license_number"`
+Method: GET
 
-- **Response:**
-  - JSON response with details about the requested license history.
+Request
+URL:
+https://demo.galileofigaro.io/api/ipfs/
+Parameters:
+action: "getLicense"
+username: "your_username"
+license_number: "your_license_number"
+Response
+Success (HTTP Status 200):
 
-## 3. Get License List
+Returns JSON data with details about the requested license history.
+json
+Copy code
+{
+  "status_code": 200,
+  "msg": "License information retrieved successfully.",
+  "data": {
+    "license_number": "your_license_number",
+    "history": [
+      {
+        "path": "https://gateway.pinata.cloud/ipfs/your_license_json_cid",
+        "date": "your_date"
+      },
+      {
+        "path": "https://gateway.pinata.cloud/ipfs/your_license_json_cid",
+        "date": "your_date"
+      },
+      // ...
+    ]
+  }
+}
+Error Responses:
 
-**Endpoint**: `/getLicenseList`
+HTTP Status 401: Unauthorized. Wrong API_KEY.
+Example Usage
+2. Get License Information
 
-**Method**: `POST`
+Request:
 
-#### Request
+GET to https://demo.galileofigaro.io/api/ipfs/?action=getLicense&username=your_username&license_number=your_license_number
+Response:
 
-- **Headers:**
-  - `Authorization`: Bearer Token
+JSON response with details about the retrieved license information.
+3. Get License List
+Endpoint: /getLicenseList
 
-- **Parameters:**
-  - `action`: `"getLicenseList"`
+Method: GET
 
-#### Response
+Request
+URL:
+https://demo.galileofigaro.io/api/ipfs/
+Parameters:
+action: "getLicenseList"
+username: "your_username"
+Response
+Success (HTTP Status 200):
 
-- **Success (HTTP Status 200):**
-  - Returns JSON data with a list of unique licenses and their respective histories.
-    ```json
-    {
-      "status_code": 200,
-      "msg": "License List retrieved successfully.",
-      "data": {
-        "licenses": [
+Returns JSON data with a list of unique licenses and their respective histories.
+json
+Copy code
+{
+  "status_code": 200,
+  "msg": "License List retrieved successfully.",
+  "data": {
+    "licenses": [
+      {
+        "license_number": "your_license_number",
+        "history": [
           {
-            "license_number": "your_license_number",
-            "history": [
-              {
-                "path": "https://gateway.pinata.cloud/ipfs/your_license_json_cid",
-                "date": "your_date"
-              },
-              {
-                "path": "https://gateway.pinata.cloud/ipfs/your_license_json_cid",
-                "date": "your_date"
-              },
-              // ...
-            ]
+            "path": "https://gateway.pinata.cloud/ipfs/your_license_json_cid",
+            "date": "your_date"
+          },
+          {
+            "path": "https://gateway.pinata.cloud/ipfs/your_license_json_cid",
+            "date": "your_date"
           },
           // ...
         ]
-      }
-    }
-    ```
+      },
+      // ...
+    ]
+  }
+}
+Error Responses:
 
-- **Error Responses:**
-  - HTTP Status 401: Unauthorized. Wrong API_KEY.
+HTTP Status 401: Unauthorized. Wrong API_KEY.
+Example Usage
+3. Get License List
 
-#### Example Usage
+Request:
 
-**3. Get License List**
+GET to https://demo.galileofigaro.io/api/ipfs/?action=getLicenseList&username=your_username
+Response:
 
-- **Request:**
-  - POST to `https://demo.galileofigaro.io/api/ipfs/`
-  - Headers: `Authorization: Bearer your_token`
-  - Parameters:
-    - `action: "getLicenseList"`
-
-- **Response:**
-  - JSON response with details about the retrieved license list.
+JSON response with details about the retrieved license list.
+Please replace your_username and your_license_number with the actual values you intend to use.
