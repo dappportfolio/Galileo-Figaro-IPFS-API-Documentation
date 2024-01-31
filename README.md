@@ -67,7 +67,7 @@ To access the API, include an `Authorization` header in your requests with a Bea
   - Parameters:
     - `action: "pinToIPFS"`
     - `license_number: "your_license_number"`
-    - `parameters_json_string: "{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":\"value3\"}"`
+    - `parameters_json_string: "{"is AI generated":"no","is AI free":"yes","Are you sure?":"I'm sure", "key4": "some value"}"`
   - Files:
     - `file_license`: Your license file (PNG format).
     - `file_content`: Your content file (PNG format).
@@ -83,93 +83,7 @@ The 'cccc' license was registered three times:
 2. [https://gateway.pinata.cloud/ipfs/QmfUJFnGS3PF68qBCbx4EVdtbuXAySF42XfEjEdD7jfsJr](https://gateway.pinata.cloud/ipfs/QmfUJFnGS3PF68qBCbx4EVdtbuXAySF42XfEjEdD7jfsJr)
 3. [https://gateway.pinata.cloud/ipfs/QmTXtMoz11qU7PhEYy5eocNUNzGZRypqWA1mpwYDiKiSEF](https://gateway.pinata.cloud/ipfs/QmTXtMoz11qU7PhEYy5eocNUNzGZRypqWA1mpwYDiKiSEF)
 
-## 2. Get License Information
-
-**Endpoint**: `/getLicense`
-
-**Method**: `POST`
-
-#### Request
-
-- **Headers:**
-  - `Authorization`: Bearer Token
-
-- **Parameters:**
-  - `action`: `"getLicense"`
-  - `license_number`: License number for the requested license.
-
-#### Response
-
-- **Success (HTTP Status 200):**
-  - Returns JSON data with details about the requested license.
-    ```json
-    {
-      "status_code": 200,
-      "msg": "License history retrieved successfully.",
-      "data": {
-        "license_number": "your_license_number",
-        "licenses": [
-          {
-            "path": "https://gateway.pinata.cloud/ipfs/your_license_json_cid",
-            "date": "your_date"
-          },
-          {
-            "path": "https://gateway.pinata.cloud/ipfs/your_license_json_cid",
-            "date": "your_date"
-          },
-          // ...
-        ]
-      }
-    }
-    ```
-
-- **Error Responses:**
-  - HTTP Status 400: Invalid request parameters.
-  - HTTP Status 404: Not found.
-
-#### Example Usage
-
-2. Get License Information
-Endpoint: /getLicense
-
-Method: GET
-
-Request
-URL:
-https://demo.galileofigaro.io/api/ipfs/
-Parameters:
-action: "getLicense"
-username: "your_username"
-license_number: "your_license_number"
-Response
-Success (HTTP Status 200):
-
-Returns JSON data with details about the requested license history.
-json
-Copy code
-{
-  "status_code": 200,
-  "msg": "License information retrieved successfully.",
-  "data": {
-    "license_number": "your_license_number",
-    "history": [
-      {
-        "path": "https://gateway.pinata.cloud/ipfs/your_license_json_cid",
-        "date": "your_date"
-      },
-      {
-        "path": "https://gateway.pinata.cloud/ipfs/your_license_json_cid",
-        "date": "your_date"
-      },
-      // ...
-    ]
-  }
-}
-Error Responses:
-
-HTTP Status 401: Unauthorized. Wrong API_KEY.
-Example Usage
-2. Get License Information
+### 2. Get License Information
 
 Request:
 
@@ -221,7 +135,7 @@ Error Responses:
 
 HTTP Status 401: Unauthorized. Wrong API_KEY.
 Example Usage
-3. Get License List
+### 3. Get License List
 
 Request:
 
