@@ -85,62 +85,51 @@ The 'cccc' license was registered three times:
 
 ### 2. Get License Information
 
-Request:
+**Endpoint**: `/getLicense`
 
-GET to https://demo.galileofigaro.io/api/ipfs/?action=getLicense&username=your_username&license_number=your_license_number
+**Method**: `GET`
+
+#### Request
+
+- **Parameters:**
+  - `action`: `"getLicense"`
+  - `username`: Your User Name.
+  - `license_number`: License number associated with the files.
+
+  - GET to https://demo.galileofigaro.io/api/ipfs/?action=getLicense&username=your_username&license_number=your_license_number
 Response:
 
-JSON response with details about the retrieved license information.
-3. Get License List
-Endpoint: /getLicenseList
+  - JSON response with details about the retrieved license information.
+ 
+    - **Success (HTTP Status 200):**
+  - Returns JSON data with details about the pinned files.
+    ```json
+    { "status_code": 200, "msg": "License List retrieved successfully.", "data": { "profile": { "name": "AiID", "img": "https://demo.galileofigaro.io/api/ipfs/logo.jpeg", "username": "aiid" }, "licenses": [ { "license_number": "12345abcde", "history": [ { "path": "https://gateway.pinata.cloud/ipfs/QmThcHJCTtCX2vw3fMvtk5tLZCxVHGVTQqsVMLHPWFUtW9", "date": "2024-01-31 06:52:53", "ipfs_data": { "parameters": { "is AI generated": "no", "is AI free": "yes", "Are you sure?": "I'm sure", "key4": "some value" }, "license_cid": "https://gateway.pinata.cloud/ipfs/QmX8PsprwzYUfyXueGSRnpjRhAmEPSLvYnTjbUu7q2e5dc", "content_cid": "https://gateway.pinata.cloud/ipfs/Qmb2GPhRi5vRV65PCckKPWjkz6AB7MKLPVA6Ci9b3XBxx1" } }, { "path": "https://gateway.pinata.cloud/ipfs/QmR37YpwHq11METAJJNyVnUsUTSy1N4Tq84SmreMQdnPyP", "date": "2024-01-31 06:20:12", "ipfs_data": { "parameters": { "is AI generated": "no", "is AI free": "yes", "Are you sure?": "I'm sure", "key4": "some value" }, "license_cid": "https://gateway.pinata.cloud/ipfs/QmX8PsprwzYUfyXueGSRnpjRhAmEPSLvYnTjbUu7q2e5dc", "content_cid": "https://gateway.pinata.cloud/ipfs/QmRko9bcgfM2fJ4UWuqRXFX8XenqVXpGFc2Q6bRupvzavL" } } ] } ] } }
+    ```
 
-Method: GET
+- **Error Responses:**
+  - Various HTTP status codes with corresponding error messages.
+  - Please replace your_username and your_license_number with the actual values you intend to use.
 
-Request
-URL:
-https://demo.galileofigaro.io/api/ipfs/
-Parameters:
-action: "getLicenseList"
-username: "your_username"
-Response
-Success (HTTP Status 200):
-
-Returns JSON data with a list of unique licenses and their respective histories.
-json
-Copy code
-{
-  "status_code": 200,
-  "msg": "License List retrieved successfully.",
-  "data": {
-    "licenses": [
-      {
-        "license_number": "your_license_number",
-        "history": [
-          {
-            "path": "https://gateway.pinata.cloud/ipfs/your_license_json_cid",
-            "date": "your_date"
-          },
-          {
-            "path": "https://gateway.pinata.cloud/ipfs/your_license_json_cid",
-            "date": "your_date"
-          },
-          // ...
-        ]
-      },
-      // ...
-    ]
-  }
-}
-Error Responses:
-
-HTTP Status 401: Unauthorized. Wrong API_KEY.
-Example Usage
 ### 3. Get License List
 
-Request:
+#### Request
 
-GET to https://demo.galileofigaro.io/api/ipfs/?action=getLicenseList&username=your_username
+**Endpoint**: `/getLicenseList`
+
+**Method**: `GET`
+
+- **Parameters:**
+  - `action`: `"getLicenseList"`
+  - `username`: Your User Name.
+ 
+  - GET to https://demo.galileofigaro.io/api/ipfs/?action=getLicenseList&username=your_username
 Response:
 
-JSON response with details about the retrieved license list.
-Please replace your_username and your_license_number with the actual values you intend to use.
+  - JSON response with details about the retrieved license list.
+ 
+- **Success (HTTP Status 200):**
+  - Returns JSON data with details about the pinned files.
+    ```json
+    { "status_code": 200, "msg": "License List retrieved successfully.", "data": { "profile": { "name": "AiID", "img": "https://demo.galileofigaro.io/api/ipfs/logo.jpeg", "username": "aiid" }, "licenses": [ { "license_number": "99999aaaaa", "history": [ { "path": "https://gateway.pinata.cloud/ipfs/QmYgVDa25gYcYT3R5heSuvciKQCpiBguVDZY7TsFpcKprN", "date": "2024-01-31 06:55:28", "ipfs_data": { "parameters": { "is AI generated": "no", "is AI free": "yes", "Are you sure?": "I'm sure", "key4": "some value" }, "license_cid": "https://gateway.pinata.cloud/ipfs/QmX8PsprwzYUfyXueGSRnpjRhAmEPSLvYnTjbUu7q2e5dc", "content_cid": "https://gateway.pinata.cloud/ipfs/QmSPuLnLfAFHVoJsfZn8q9PafgAHrjMdUK1xitzRSzhA8n" } } ] }, { "license_number": "12345abcde", "history": [ { "path": "https://gateway.pinata.cloud/ipfs/QmThcHJCTtCX2vw3fMvtk5tLZCxVHGVTQqsVMLHPWFUtW9", "date": "2024-01-31 06:52:53", "ipfs_data": { "parameters": { "is AI generated": "no", "is AI free": "yes", "Are you sure?": "I'm sure", "key4": "some value" }, "license_cid": "https://gateway.pinata.cloud/ipfs/QmX8PsprwzYUfyXueGSRnpjRhAmEPSLvYnTjbUu7q2e5dc", "content_cid": "https://gateway.pinata.cloud/ipfs/Qmb2GPhRi5vRV65PCckKPWjkz6AB7MKLPVA6Ci9b3XBxx1" } }, { "path": "https://gateway.pinata.cloud/ipfs/QmR37YpwHq11METAJJNyVnUsUTSy1N4Tq84SmreMQdnPyP", "date": "2024-01-31 06:20:12", "ipfs_data": { "parameters": { "is AI generated": "no", "is AI free": "yes", "Are you sure?": "I'm sure", "key4": "some value" }, "license_cid": "https://gateway.pinata.cloud/ipfs/QmX8PsprwzYUfyXueGSRnpjRhAmEPSLvYnTjbUu7q2e5dc", "content_cid": "https://gateway.pinata.cloud/ipfs/QmRko9bcgfM2fJ4UWuqRXFX8XenqVXpGFc2Q6bRupvzavL" } } ] } ] } }
+  - Please replace your_license_number with the actual value you intend to use.
